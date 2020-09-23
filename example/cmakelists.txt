@@ -2,10 +2,6 @@ cmake_minimum_required(VERSION 2.8.0)
 
 project(example)
 
-set(PULGIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin)
-set(INTERFACE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/interface)
-set(MAIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/host)
-
 include_directories(
     ${INTERFACE_DIR}
     ${PULGIN_DIR}

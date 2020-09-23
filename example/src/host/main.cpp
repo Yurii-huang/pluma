@@ -1,5 +1,5 @@
-#include <Pluma/Pluma.hpp>
-#include "Warrior.hpp"
+#include <Pluma/Pluma.hpp> //static link library head
+#include "Warrior.hpp" //interface head
 #include <iostream>
 
 int main(int argc,char* argv[])
