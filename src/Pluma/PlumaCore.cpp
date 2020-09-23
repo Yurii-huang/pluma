@@ -1,4 +1,4 @@
-#include "PlumaCore.h"
+#include "PlumaCore.hpp"
 
 std::vector<std::string> PlumaCore::Application::_procArguments = {};
 std::string PlumaCore::Application::_procRunPath = "";
@@ -111,8 +111,21 @@ void PlumaCore::Application::channelCall(std::string flag)
     auto func = _channelCalled[flag];
     if(func != nullptr)
     {
-        func();
+        try 
+        {
+            func();
+        }
+        catch (std::exception err) 
+        {
+            throw std::string("callback channnel") + FUNCTION_INFO + ":" + err.what();
+        }
     }
+    else 
+    {
+        PDebug() << "not found to call channel(process function)";
+    }
+
+    PDebug() << "";
 }
 
 std::string PlumaCore::Application::argsValue(std::string _key)

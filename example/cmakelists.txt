@@ -2,6 +2,13 @@ cmake_minimum_required(VERSION 2.8.0)
 
 project(example)
 
+set(PULGIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/testPlumaPlugins/plugin)
+set(INTERFACE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/testPlumaPlugins/interface)
+set(LoaderManager_DIR ${CMAKE_CURRENT_SOURCE_DIR}/testPlumaPlugins/loaderManager)
+set(PlumaCore_DIR ${CMAKE_CURRENT_SOURCE_DIR}/testPlumaCore)
+
+set(CMAKE_CXX_STANDARD 11)
+
 include_directories(
     ${INTERFACE_DIR}
     ${PULGIN_DIR}
@@ -9,8 +16,10 @@ include_directories(
 
 link_libraries(Pluma)
 
-aux_source_directory(${PULGIN_DIR} ALLSRC)
-message(FUNNING ${ALLSRC})
+
+
+aux_source_directory(${PULGIN_DIR} tPlumaPluginsSRC)
+message(FUNNING ${tPlumaPluginsSRC})
 
 #gen plugins
 add_library(Eagel SHARED ${PULGIN_DIR}/Eagle.cpp)
@@ -18,4 +27,7 @@ add_library(Jaguar SHARED ${PULGIN_DIR}/Jaguar.cpp)
 add_library(SimpleWarrior SHARED ${PULGIN_DIR}/SimpleWarrior.cpp)
 
 #gen manager loader
-add_executable(testPlugins ${MAIN_DIR}/main.cpp)
+add_executable(tPluginLoader ${LoaderManager_DIR}/main.cpp)
+
+#gen plumaCore load has channel callback
+add_executable(tPlumaCore ${PlumaCore_DIR}/main.cpp)
