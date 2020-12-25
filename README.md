@@ -41,13 +41,3 @@ Pluma - Plug-in Management Framework
 	这里针对源码进行了测试和结构进行改动。
 	2020-06-06 FunNing
 
-
-```mermaid
-graph LR
-A[方形] -->B(圆角)
-    B --> C{条件a}
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[横向流程图]
-```
-
